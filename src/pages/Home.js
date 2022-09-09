@@ -1,12 +1,33 @@
 import React from 'react'
 
-// Assets
-import { FaCogs } from 'react-icons/fa'
-import { IoFlash } from 'react-icons/io5'
-import { BsSuitHeartFill } from 'react-icons/bs'
-import { BiSmile } from 'react-icons/bi'
+export default function Home(props) {
 
-export default function Home() {
+
+    const highLightsList = props.highLights.map(highlight => (
+        <div key={highlight.id} className="col-md-3 col-sm-6 highlight">
+            <div className="h-caption">
+                <h4>{highlight.image}<br /> {highlight.title}</h4>
+            </div>
+            <div className="h-body text-center">
+                <p>{highlight.description}</p>
+            </div>
+        </div>
+    ))
+
+    const faqList = props.faq.map((faqSet, index) => (
+        <div key={index} className="row">
+            {
+                faqSet.map(singleFaq => (
+                    <div key={singleFaq.id} className="col-sm-6">
+                        <h3>{singleFaq.question}</h3>
+                        {singleFaq.answer}
+                    </div>
+                ))
+            }
+        </div>
+    ))
+
+
   return (
     <>
 
@@ -42,38 +63,7 @@ export default function Home() {
                 <h3 className="text-center thin">Reasons to use this template</h3>
                 
                 <div className="row">
-                    <div className="col-md-3 col-sm-6 highlight">
-                        <div className="h-caption">
-                            <h4><FaCogs size={'6rem'} style={{marginBottom: 20}} /><br /> Bootstrap-powered</h4>
-                        </div>
-                        <div className="h-body text-center">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aliquid adipisci aspernatur. Soluta quisquam dignissimos earum quasi voluptate. Amet, dignissimos, tenetur vitae dolor quam iusto assumenda hic reprehenderit?</p>
-                        </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6 highlight">
-                        <div className="h-caption">
-                            <h4><IoFlash size={'6rem'} style={{marginBottom: 20}}  /><br /> Fat-free</h4>
-                        </div>
-                        <div className="h-body text-center">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam quibusdam rerum repellendus laboriosam reprehenderit! </p>
-                        </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6 highlight">
-                        <div className="h-caption">
-                            <h4><BsSuitHeartFill size={'6rem'} style={{marginBottom: 20}} /><br /> Creative Commons</h4>
-                        </div>
-                        <div className="h-body text-center">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis, perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum reprehenderit dolorem dicta nesciunt corporis?</p>
-                        </div>
-                    </div>
-                    <div className="col-md-3 col-sm-6 highlight">
-                        <div className="h-caption">
-                            <h4><BiSmile size={'6rem'} style={{marginBottom: 20}}/><br /> Author's support</h4>
-                        </div>
-                        <div className="h-body text-center">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio sequi atque temporibus facere corporis eos expedita? </p>
-                        </div>
-                    </div>
+                    {highLightsList}
                 </div> 
                 {/* <!-- /row  --> */}
             
@@ -87,35 +77,7 @@ export default function Home() {
             <h2 className="text-center top-space">Frequently Asked Questions</h2>
             <br />
 
-            <div className="row">
-                <div className="col-sm-6">
-                    <h3>Which code editor would you recommend?</h3>
-                    <p>I'd highly recommend you <a href="http://www.sublimetext.com/">Sublime Text</a> - a free to try text editor which I'm using daily. Awesome tool!</p>
-                </div>
-                <div className="col-sm-6">
-                    <h3>Nice header. Where do I find more images like that one?</h3>
-                    <p>
-                        Well, there are thousands of stock art galleries, but personally, 
-                        I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a> 
-                        and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>
-                </div>
-            </div> 
-            {/* <!-- /row --> */}
-
-            <div className="row">
-                <div className="col-sm-6">
-                    <h3>Can I use it to build a site for my client?</h3>
-                    <p>
-                        Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>, 
-                        which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work. 
-                    </p>
-                </div>
-                <div className="col-sm-6">
-                    <h3>Can you customize this template for me?</h3>
-                    <p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>
-                </div>
-            </div> 
-            {/* <!-- /row --> */}
+            {faqList}
 
             <div className="jumbotron top-space">
                 <h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
