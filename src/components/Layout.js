@@ -12,13 +12,6 @@ import SignUp from '../pages/SignUp';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-// Data
-import { HIGHLIGHTS } from '../shared/highlights';
-import { FAQ } from '../shared/faq'
-import { ABOUTCONTENT } from '../shared/aboutContent'
-
-
-
 function Main() {
   return (
     <>
@@ -35,15 +28,11 @@ function Main() {
 
 export default function Layout() {
 
-  const [highLights, setHighLights] = useState(HIGHLIGHTS)
-  const [faq, setFaq] = useState(FAQ)
-  const [aboutContent, setAboutContent] = useState(ABOUTCONTENT)
-
   return (
     <Routes>
         <Route path="main" element={<Main />} >
-            <Route path="home" element={<Home highLights={highLights} faq={faq}/>} />
-            <Route path="about" element={<About aboutContent={aboutContent}/>} />
+            <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignUp />} />

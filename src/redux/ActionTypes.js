@@ -1,0 +1,3 @@
+export const LOAD_HIGHLIGHTS = "LOAD_HIGHLIGHTS"
+export const LOAD_FAQ = "LOAD_FAQ"
+export const LOAD_ABOUT_CONTENT = "LOAD_ABOUT_CONTENT"

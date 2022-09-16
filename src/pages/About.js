@@ -1,10 +1,20 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react';
+
+import { loadAboutContent } from '../redux/actions'
 
 export default function About(props) {
+    const aboutContent = useSelector(state => state.aboutContentReducer);
+    const dispatch = useDispatch()
 
-    const aboutContentList = props.aboutContent.map(singleAboutContent => (
+    useEffect(() => {
+        dispatch(loadAboutContent())
+    }, [])
+
+    const aboutContentList = aboutContent.map(singleAboutContent => (
         <div key={singleAboutContent.id}>
             <h3>{singleAboutContent.title}</h3>
             {singleAboutContent.image ? singleAboutContent.image : <></>}
