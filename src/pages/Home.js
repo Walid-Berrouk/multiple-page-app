@@ -1,20 +1,11 @@
 import React from 'react'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-
-import { loadHighLights, loadFaq } from '../redux/actions'
+import { useSelector } from 'react-redux'
 
 export default function Home(props) {
 
     const highLights = useSelector(state => state.highLightsReducer);
     const faq = useSelector(state => state.faqReducer);
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(loadHighLights())
-        dispatch(loadFaq())
-    }, [])
 
     const highLightsList = highLights.map(highlight => (
         <div key={highlight.id} className="col-md-3 col-sm-6 highlight">
