@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
+import GoogleMapReact from 'google-map-react';
 
 export default function Contact() {
 
@@ -119,7 +120,18 @@ export default function Contact() {
         {/* <!-- /container --> */}
         
         <section className="container-full top-space">
-            <div id="map"></div>
+            <div id="map">
+                {/* <GoogleMapReact
+                    // bootstrapURLKeys={{ key: "" }}
+                    defaultCenter={{
+                        lat: 10.99835602,
+                        lng: 77.01502627
+                      }}
+                    defaultZoom={11}
+                >
+                </GoogleMapReact> */}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103667.67296663678!2d-0.7082319782053832!3d35.711096110582254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8854841f537d%3A0x4187f63762f7290f!2sOran!5e0!3m2!1sfr!2sdz!4v1663300487119!5m2!1sfr!2sdz" style={{border: 0, width:"100%", height: "100%"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </section>
     </>
   )
