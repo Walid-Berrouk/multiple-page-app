@@ -7,7 +7,7 @@ export default function Home(props) {
     const highLights = useSelector(state => state.highLightsReducer);
     const faq = useSelector(state => state.faqReducer);
 
-    const highLightsList = highLights.map(highlight => (
+    const highLightsList = highLights.value.map(highlight => (
         <div key={highlight.id} className="col-md-3 col-sm-6 highlight">
             <div className="h-caption">
                 <h4>{highlight.image}<br /> {highlight.title}</h4>
@@ -18,7 +18,7 @@ export default function Home(props) {
         </div>
     ))
 
-    const faqList = faq.map((faqSet, index) => (
+    const faqList = faq.value.map((faqSet, index) => (
         <div key={index} className="row">
             {
                 faqSet.map(singleFaq => (

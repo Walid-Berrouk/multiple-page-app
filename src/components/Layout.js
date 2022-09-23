@@ -14,7 +14,9 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 // Redux Actions
-import { loadAboutContent, loadHighLights, loadFaq } from '../redux/actions'
+import { loadAboutContent } from '../redux/slices/aboutContent'
+import { loadHighLights } from '../redux/slices/highLights'
+import { loadFaq } from '../redux/slices/faq'
 
 function Main() {
   return (

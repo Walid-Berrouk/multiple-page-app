@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 export default function About(props) {
     const aboutContent = useSelector(state => state.aboutContentReducer);
 
-    const aboutContentList = aboutContent.map(singleAboutContent => (
+    const aboutContentList = aboutContent.value.map(singleAboutContent => (
         <div key={singleAboutContent.id}>
             <h3>{singleAboutContent.title}</h3>
             {singleAboutContent.image ? singleAboutContent.image : <></>}
